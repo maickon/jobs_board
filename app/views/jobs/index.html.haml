@@ -1,0 +1,10 @@
+.container
+	- @jobs.each do |job|
+		%h1= link_to job.title, job
+		%ul
+			%li= job.description
+			%li= job.url
+			%li= job.company
+		%hr
+
+	= link_to "New job", new_job_path
