@@ -1,7 +1,8 @@
 .container
 	%h1= @job.title
-
+	
 	%p= @job.description 
+	%p= @job.category.name 
 	%p= @job.company 
 	%p= @job.url
 
