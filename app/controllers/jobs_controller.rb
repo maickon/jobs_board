@@ -3,10 +3,10 @@ class JobsController < ApplicationController
 	before_action :find_job, only: [:show, :edit, :update, :destroy]
 	def index
 		if params[:category].blank?
-			@jobs = Job.all.order("created_at DESC")			
+			@jobs = Job.all.order("created_at DESC").page(params[:page]).per(4)			
 		else
 			@category_id = Category.find_by(name: params[:category]).id
-			@jobs = Job.where(category_id: @category_id).order("created_at DESC")
+			@jobs = Job.where(category_id: @category_id).order("created_at DESC").page(params[:page]).per(4)
 		end
 	end
 

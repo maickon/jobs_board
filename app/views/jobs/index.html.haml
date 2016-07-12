@@ -1,10 +1,12 @@
-.container
-	- @jobs.each do |job|
-		%h1= link_to job.title, job
-		%ul
-			%li= job.description
-			%li= job.url
-			%li= job.company
-		%hr
-
-	= link_to "New job", new_job_path
+#jobs
+	- @jobs.each_slice(4) do |jobs|
+		.row
+			- jobs.each do |job|
+				.col-md-3
+					.job
+						%h3= link_to job.title, job
+						%p
+							%b= job.company
+		.row
+			=paginate @jobs
+			= page_entries_info @jobs
