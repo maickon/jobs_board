@@ -7,6 +7,6 @@
 						%h3= link_to job.title, job
 						%p
 							%b= job.company
-		.row
-			=paginate @jobs
-			= page_entries_info @jobs
+	%br
+	=paginate @jobs
+	= page_entries_info @jobs
